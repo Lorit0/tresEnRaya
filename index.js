@@ -7,70 +7,80 @@ let matriz = [
 ]
 
 let puntero = true
-
+let contador = 0
 casillas.forEach(casilla => {
     casilla.addEventListener("click", e => {
         if (e.target.classList.contains("fila1-col1")) {
+            contador = contador + 1
+
             e.target.textContent = actualizaPuntero(puntero)
             e.target.classList.add("validaCasilla")
             matriz[0][0] = puntero
-            console.table(matriz)
+
             verificaGanador()
         }
         if (e.target.classList.contains("fila1-col2")) {
+            contador = contador + 1
             e.target.textContent = actualizaPuntero(puntero)
             e.target.classList.add("validaCasilla")
             matriz[0][1] = puntero
-            console.table(matriz)
+
             verificaGanador()
         }
         if (e.target.classList.contains("fila1-col3")) {
+            contador = contador + 1
             e.target.textContent = actualizaPuntero(puntero)
             e.target.classList.add("validaCasilla")
             matriz[0][2] = puntero
-            console.table(matriz)
+
             verificaGanador()
         }
         if (e.target.classList.contains("fila2-col1")) {
+            contador = contador + 1
             e.target.textContent = actualizaPuntero(puntero)
             e.target.classList.add("validaCasilla")
             matriz[1][0] = puntero
-            console.table(matriz)
+
             verificaGanador()
         }
         if (e.target.classList.contains("fila2-col2")) {
+            contador = contador + 1
             e.target.textContent = actualizaPuntero(puntero)
             e.target.classList.add("validaCasilla")
             matriz[1][1] = puntero
-            console.table(matriz)
+
             verificaGanador()
         }
         if (e.target.classList.contains("fila2-col3")) {
+            contador = contador + 1
             e.target.textContent = actualizaPuntero(puntero)
             e.target.classList.add("validaCasilla")
             matriz[1][2] = puntero
-            console.table(matriz)
+
             verificaGanador()
         }
         if (e.target.classList.contains("fila3-col1")) {
+            contador = contador + 1
             e.target.textContent = actualizaPuntero(puntero)
             e.target.classList.add("validaCasilla")
             matriz[2][0] = puntero
-            console.table(matriz)
+
             verificaGanador()
         }
         if (e.target.classList.contains("fila3-col2")) {
+            contador = contador + 1
             e.target.textContent = actualizaPuntero(puntero)
             e.target.classList.add("validaCasilla")
             matriz[2][1] = puntero
-            console.table(matriz)
+
             verificaGanador()
         }
         if (e.target.classList.contains("fila3-col3")) {
+            contador = contador + 1
             e.target.textContent = actualizaPuntero(puntero)
             e.target.classList.add("validaCasilla")
             matriz[2][2] = puntero
-            console.table(matriz)
+
             verificaGanador()
         }
     })
@@ -87,6 +97,7 @@ function actualizaPuntero(x) {
 }
 
 function verificaGanador() {
+    console.log(contador)
     if (
         (matriz[0][0] === matriz[0][1]) & (matriz[0][1] === matriz[0][2]) ||
         (matriz[1][0] === matriz[1][1]) & (matriz[1][1] === matriz[1][2]) ||
@@ -97,11 +108,15 @@ function verificaGanador() {
         (matriz[0][0] === matriz[1][1]) & (matriz[1][1] === matriz[2][2]) ||
         (matriz[0][2] === matriz[1][1]) & (matriz[1][1] === matriz[2][0])
     ) {
-        lanzarConfeti()
         setTimeout(() => {
             verificaPuntero()
             location.reload()
         }, 500)
+    } else {
+        if (contador === 9) {
+            alert("El juego resultó en un empate")
+            location.reload()
+        }
     }
 }
 
