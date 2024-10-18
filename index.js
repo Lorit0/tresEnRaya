@@ -97,8 +97,8 @@ function verificaGanador() {
         (matriz[0][0] === matriz[1][1]) & (matriz[1][1] === matriz[2][2]) ||
         (matriz[0][2] === matriz[1][1]) & (matriz[1][1] === matriz[2][0])
     ) {
+        lanzarConfeti()
         setTimeout(() => {
-            lanzarConfeti()
             verificaPuntero()
             location.reload()
         }, 500)
