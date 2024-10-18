@@ -98,6 +98,7 @@ function verificaGanador() {
         (matriz[0][2] === matriz[1][1]) & (matriz[1][1] === matriz[2][0])
     ) {
         setTimeout(() => {
+            lanzarConfeti()
             verificaPuntero()
             location.reload()
         }, 500)
@@ -110,4 +111,12 @@ function verificaPuntero() {
     } else {
         alert("El ganador es X")
     }
+}
+function lanzarConfeti() {
+    confetti({
+        particleCount: 100, // Número de partículas
+        spread: 70, // Ángulo de expansión del confeti
+        origin: { x: 0.5, y: 0.5 }, // Posición desde donde sale el confeti
+        colors: ["#ff0a54", "#ff477e", "#ff7096", "#ff85a1", "#fbb1bd"],
+    })
 }
