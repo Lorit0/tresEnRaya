@@ -108,13 +108,14 @@ function verificaGanador() {
         (matriz[0][0] === matriz[1][1]) & (matriz[1][1] === matriz[2][2]) ||
         (matriz[0][2] === matriz[1][1]) & (matriz[1][1] === matriz[2][0])
     ) {
+        confetti()
         setTimeout(() => {
             verificaPuntero()
             location.reload()
-        }, 500)
+        }, 200)
     } else {
         if (contador === 9) {
-            alert("El juego resultó en un empate")
+            alert("El juego resultó en un empate 😊")
             location.reload()
         }
     }
@@ -122,9 +123,9 @@ function verificaGanador() {
 
 function verificaPuntero() {
     if (puntero === true) {
-        alert("El ganador es O")
+        alert("El ganador es O 😊")
     } else {
-        alert("El ganador es X")
+        alert("El ganador es X 😊")
     }
 }
 function lanzarConfeti() {
